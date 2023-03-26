@@ -1,0 +1,14 @@
+{
+    "name": "GPT-Bot",
+    "version": "1.0.0",
+    "description": "OpenAI Bot for whatsapp",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "dependencies": {
+        "figlet": "^1.3.0",
+        "qrcode-terminal": "^0.12.0",
+        "whatsapp-web.js": "^1.18.4"
+    }
+}

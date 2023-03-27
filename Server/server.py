@@ -33,7 +33,7 @@ def chatai(req):
     messages = [
         { "role": "system", "content": "Halo, nama saya GPT-Bot, apa yang bisa saya bantu ?" },
     ]
-    openai.api_key = getrandkey()
+    openai.api_key = get_random_api_key()
     messages.append({"role": "user", "content": req})
     results = openai.ChatCompletion.create(
       model="gpt-3.5-turbo",
@@ -49,7 +49,7 @@ app = Flask(__name__)
 def chat():
     data = request.json
     request_input = data['input']
-    response = chat_ai(request_input)
+    response = chatai(request_input)
     return { 'response': response }
 
 # Run the app on port 2824

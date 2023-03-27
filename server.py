@@ -3,21 +3,20 @@ import json
 import openai
 import sys
 from random import *
-from flask import Flask, request
+from flask import *
 
-# >> Get api config path
+# Get the path of the API config file
 exe_dir = sys._MEIPASS if hasattr(sys, '_MEIPASS') else os.path.dirname(os.path.abspath(__file__))
 api_key_path = os.path.join(exe_dir, 'apikey.json')
 
-# >> Open apiconfig as apikeynya
+# Load the API keys from the config file
 with open(api_key_path) as config:
-    apikeynya = json.load(config)
+    api_keys = json.load(config)
 
-# Function used for get random openai key
-def getrandkey():
-    random_api = randint(1, int(apikeynya['totalapi']))
-    resultapi = apikeynya[f'api{random_api}']
-    return resultapi
+# Function to get a random OpenAI API key
+def get_random_api_key():
+    random_api = randint(1, int(api_keys['totalapi']))
+    return api_keys[f'api{random_api}']
 
 # >> Function used to generate ai request
 def chatai(req):
@@ -32,17 +31,17 @@ def chatai(req):
     )
     return results.choices[0]['message']['content']
 
-# Create Flask app
+# Create a Flask app
 app = Flask(__name__)
 
-# Define API endpoint
+# Define an API endpoint to handle chat requests
 @app.route('/chat', methods=['POST'])
 def chat():
     data = request.json
-    input = data['input']
-    response = chatai(input)
+    request_input = data['input']
+    response = chat_ai(request_input)
     return { 'response': response }
 
-# Run app on port 2824
+# Run the app on port 2824
 if __name__ == '__main__':
     app.run(port=2824)

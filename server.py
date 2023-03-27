@@ -1,3 +1,13 @@
+# ----------------------------------------------------------------------------
+# Name         : GPT-API | Used for tele and wa bot
+# Desc         : Simple Python Flask api for ai completion
+# Author       : Wildy Sheverando [Wildy8283]
+# Date         : 26-03-2023
+# License      : GNU General Public License V3
+# License Link : https://raw.githubusercontent.com/wildy8283/lcn/main/gplv3
+# ----------------------------------------------------------------------------
+
+# >> Import library
 import os
 import json
 import openai

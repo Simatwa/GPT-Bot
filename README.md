@@ -1,4 +1,4 @@
-# GPT-3 Chatbot with Flask API
+# GPT-Bot with GPT-3.5-Turbo
 
 This is a simple implementation of a GPT-3.5 Turbo chatbot using Flask API.
 and used for whatsapp & telegram bot
